@@ -3,9 +3,22 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <header>
+      
+    </header>
+    <main>
+      <%- include('index/login'); %>
+      <%- include('index/admin'); %>
+      <%- include('index/player'); %>
+    </main>
+    <footer>
+
+    </footer>
   </body>
+  <script src="javascripts/utility/formgetter.js"></script>
+  <script src="javascripts/utility/modal.js"></script>
+  <script src="javascripts/usecase/index/login.js"></script>
 </html>

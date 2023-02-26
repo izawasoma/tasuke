@@ -1,0 +1,55 @@
+<section class="index-button-box close" id="index-login">
+    <button class="button-white" onclick="openModal('adminlogin')">主催者として入室する</button>
+    <button class="button-white" onclick="openModal('playerlogin')">参加者として入室する</button>
+    <button class="button-white">視聴者として入室する</button>
+  </section>
+  <section class="modal close" modalname="adminlogin">
+    <div class="modal-main">
+      <i class="fas fa-times modal-close" onclick="closeModal('adminlogin')"></i>
+      <h2>主催者ログイン</h2>
+      <form action="">
+        <div class="form-group">
+          <div class="form-title">ログインID</div>
+          <div class="form-input-box">
+            <input type="text" id="adminLoginId">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-title">パスワード</div>
+          <div class="form-input-box">
+            <input type="text" id="adminLoginPass">
+          </div>
+          <p class="form-error">入力内容に誤りがあります</p>
+        </div>
+        <button type="button" class="button-white" onclick="loginAdminister()">ログイン</button>
+      </form>
+    </div>
+  </section>
+  <section class="modal close" modalname="playerlogin">
+    <div class="modal-main">
+      <i class="fas fa-times modal-close" onclick="closeModal('playerlogin')"></i>
+      <h2>プレイヤーエントリー</h2>
+      <form action="">
+        <div class="form-group">
+          <div class="form-title">プレイヤー名</div>
+          <div class="form-input-box">
+            <input type="text">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-title">ユーザーコード</div>
+          <div class="form-input-box">
+            <input type="text">
+          </div>
+          <p class="form-error">入力内容に誤りがあります</p>
+        </div>
+        <div class="form-group">
+          <div class="form-title">合言葉</div>
+          <div class="form-input-box">
+            <input type="text">
+          </div>
+          <p class="form-error">入力内容に誤りがあります</p>
+        </div>
+      </form>
+    </div>
+</section>
