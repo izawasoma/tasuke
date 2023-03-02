@@ -1,4 +1,4 @@
-<section class="index-button-box close" id="index-login">
+<section class="index-button-box open" id="index-login">
     <button class="button-white" onclick="openModal('adminlogin')">主催者として入室する</button>
     <button class="button-white" onclick="openModal('playerlogin')">参加者として入室する</button>
     <button class="button-white">視聴者として入室する</button>
@@ -19,7 +19,7 @@
           <div class="form-input-box">
             <input type="text" id="adminLoginPass">
           </div>
-          <p class="form-error">入力内容に誤りがあります</p>
+          <p class="form-error" id="loginAdminError"></p>
         </div>
         <button type="button" class="button-white" onclick="loginAdminister()">ログイン</button>
       </form>

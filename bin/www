@@ -22,14 +22,63 @@ app.set('port', port);
 var server = http.createServer(app);
 
 /**
- * Socket.io
+ * ゲーム関連の動作を担うソースコード
  */
 
+//ソケットの準備
 const io = require("socket.io")(server);
+//データベースのクライアント情報
+const { Client } = require('pg');
 
 io.on("connection", (socket) => {
-  console.log("接続しました");
-})
+  //=============================
+  //管理者ログイン
+  //=============================
+  socket.on("adminLogin",async function(data){
+
+    //DBクライアント
+    const client = new Client({
+      user: 'yzkgynjeuyrdts',
+      host: 'ec2-54-160-109-68.compute-1.amazonaws.com',
+      database: 'd54n1qq9id49kn',
+      password: 'ae2caf0bbc24c575f67d08ba0427143e7c8c4b051f27809e0696ab8ddf7c41d1',
+      port: '5432',
+      ssl: {
+        rejectUnauthorized: false
+      }
+    });
+    //接続
+    await client.connect((err) => {
+      if (err) {
+        console.error('connection error', err.stack);
+      } else {
+        console.log('connected to postgres');
+      }
+    });
+
+    //データ取得
+    let adminUser;
+
+    await client.query('SELECT * from admins')
+    .then((result) => {
+      adminUser = result.rows[0];
+      client.end();
+    })
+    .catch((e) => {
+      console.error(e.stack);
+    });
+
+    //ログインチェック
+    if(adminUser.loginId == data.id && adminUser.password == data.password){
+      socket.emit("adminLoginSuccess");
+    }
+    else{
+      socket.emit("adminLoginFail");
+    }
+
+  })
+
+});
 
 /**
  * Listen on provided port, on all network interfaces.
