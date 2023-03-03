@@ -1,0 +1,22 @@
+// foundation ==========
+@import "./destyle"; //元々のCSSを全て無効化
+@import "./variables"; //フォント情報、共通色などの変数
+@import "./foundation"; //ページ全体に関わる基本設定
+@import "./animation";
+
+//layout =============== ※ヘッダー、フッターなどの枠組み
+@import "layout";
+
+//components -----------
+@import "./components/button";
+@import "./components/modal";
+@import "./components/form";
+@import "./components/table";
+@import "./components/loading";
+
+//pages -------------
+@import "./pages/index";
+
+//utilities ------------
+@import "./utility/margin"
+

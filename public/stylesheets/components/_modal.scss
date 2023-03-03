@@ -1,0 +1,40 @@
+@import "./../variables";
+
+.modal{
+    width: 100%;
+    height: 100%;
+    background-color: #000000cc;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &-main{
+        width: 45%;
+        min-height: 40%;
+        padding: 4rem 6rem;
+        box-sizing: border-box;
+        border: 1px $bdc-black solid;
+        background-color: $bgc-white;
+        position: relative;
+        & > h2{
+            font-size: 2.2rem;
+            margin-bottom: 2.4rem;
+            font-weight: 700;
+        }
+    }
+    &-close{
+        position: absolute;
+        top: 4rem;
+        right: 6rem;
+        font-size: 2.5rem;
+        cursor: pointer;
+        transition: color 0.2s;
+        &:hover{
+            color: $fc-error;
+        }
+    }
+}

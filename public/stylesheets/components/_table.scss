@@ -1,0 +1,152 @@
+@import "./../variables";
+
+.table{
+    width: 100%;
+    margin: 2rem auto;
+    border-collapse: collapse;
+    & tr{
+        width: 100%;
+        height: 100%;
+        & .col-1 { width: 5%; }
+        & .col-2 { width: 10%; }
+        & .col-3 { width: 15%; }
+        & .col-4 { width: 20%; }
+        & .col-5 { width: 25%; }
+        & .col-6 { width: 30%; }
+        & .col-7 { width: 35%; }
+        & .col-8 { width: 40%; }
+        & .col-9 { width: 45%; }
+        & .col-10 { width: 50%; }
+        & .col-11 { width: 55%; }
+        & .col-12 { width: 60%; }
+        & .col-13 { width: 65%; }
+        & .col-14 { width: 70%; }
+        & .col-15 { width: 75%; }
+        & .col-16 { width: 80%; }
+        & .col-17 { width: 85%; }
+        & .col-18 { width: 90%; }
+        & .col-19 { width: 95%; }
+        & .col-20 { width: 100%; }
+    }
+    td, th{
+        padding: 1.4rem 1rem;
+        vertical-align: middle;
+        height: 100%;
+    }
+    .table-align-s{
+        text-align: start;
+    }
+    .table-align-c{
+        text-align: center;
+    }
+    .table-align-e{
+        text-align: end;
+    }
+    .vertical-align-s{
+        vertical-align: text-top;
+    }
+    .vertical-align-c{
+        vertical-align: middle;
+    }
+    .vertical-align-e{
+        vertical-align: text-bottom;
+    }
+}
+
+.table-border-grid{
+    td, th{
+        border: 1px solid $fc-black;
+    }
+}
+
+.table-border-horizon{
+    tr{
+        border-top: 1px solid $fc-black;
+    }
+    tr:nth-last-of-type(1){
+        border-bottom: 1px solid $fc-black;
+    }
+}
+
+.table-border-tr{
+    tr{
+        border-right: 1px solid $fc-black;
+        border-left: 1px solid $fc-black;
+        border-bottom: 1px solid $fc-black;
+    }
+    tr:nth-of-type(1){
+        border: 1px solid $fc-black;
+    }
+}
+
+.link-tr{
+    background-color: aqua;
+    
+}
+
+.table-hover{
+    transition: background-color 0.4s;
+    cursor: pointer;
+    &:hover{
+        background-color: $bgc-active;
+    }
+}
+
+/*リセット */
+.selecter-check-box{
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* チェックボックスデザイン */
+.selecter-check-box{
+    cursor: pointer;
+    padding-left: 30px;/*label手前にチェックボックス用の余白を開ける*/
+    vertical-align: middle;
+    position: relative;
+    margin-bottom: 0.3rem;
+}
+.selecter-check-box::before,
+.selecter-check-box::after {
+  content: "";
+  display: block; 
+  position: absolute;
+}
+.selecter-check-box::before {
+  background-color: #fff;
+  border-radius: 0%;
+  border: 1px solid #666464;
+  width: 20px;/*チェックボックスの横幅*/
+  height: 20px;/*チェックボックスの縦幅*/
+  transform: translateY(-50%);
+  top: 50%;
+  left: 5px;
+}
+.selecter-check-box::after {
+  border-bottom: 3px solid #666464;/*チェックの太さ*/
+  border-left: 3px solid #666464;/*チェックの太さ*/
+  opacity: 0;/*チェック前は非表示*/
+  height: 6px;/*チェックの高さ*/
+  width: 11px;/*チェックの横幅*/
+  transform: rotate(-45deg);
+  top: -4px;/*チェック時の位置調整*/
+  left: 10px;/*チェック時の位置調整*/
+}
+.selecter-check-box:checked::after {
+  opacity: 1;/*チェック後表示*/
+}
+
+.selecter-check-box:checked::before{
+    background-color: $bgc-active;
+}
+
+.table-bg-active{
+    background-color: $bgc-active;
+}

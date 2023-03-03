@@ -3,9 +3,32 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <header>
+
+    </header>
+    <main>
+      <%- include('index/login'); %>
+      <%- include('index/admin'); %>
+      <%- include('index/player'); %>
+      <%- include('common/loading'); %>
+    </main>
+    <footer>
+
+    </footer>
   </body>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    let socket;
+    $(function() {
+      socket = io.connect();
+    });
+  </script>
+  <script src="javascripts/utility/formgetter.js"></script>
+  <script src="javascripts/utility/modal.js"></script>
+  <script src="javascripts/utility/loading.js"></script>
+  <script src="javascripts/usecase/index/login.js"></script>
 </html>
