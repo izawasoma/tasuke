@@ -7,13 +7,6 @@ const loginAdminister = () => {
     const adminLoginPass = getInputValueById("adminLoginPass");
     socket.emit('adminLogin', {id:adminLoginId,password:adminLoginPass});
     loading(true);
-    //const loginPage = document.getElementById("index-login");
-    //loginPage.classList.remove("open");
-    //loginPage.classList.add("close");
-    //const settingPlayerNumberPage = document.getElementById("admin-menu-player-number");
-    //settingPlayerNumberPage.classList.remove("close");
-    //settingPlayerNumberPage.classList.add("open");
-    //closeModal("adminlogin");
 }
 
 $(function(){
@@ -21,6 +14,8 @@ $(function(){
         const elemLoginAdminError = document.getElementById("loginAdminError");
         elemLoginAdminError.textContent = "";
         loading(false);
+        switchingSection("index-login","admin-menu-player-number");
+        closeModal("adminlogin");
     });
     
     socket.on('adminLoginFail',function(){
@@ -28,4 +23,4 @@ $(function(){
         elemLoginAdminError.textContent = "入力に誤りがあります。ログインに失敗しました。";
         loading(false);
     });
-})
+});

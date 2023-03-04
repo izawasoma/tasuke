@@ -30,6 +30,13 @@ const io = require("socket.io")(server);
 //データベースのクライアント情報
 const { Client } = require('pg');
 
+//オブジェクト
+const GameData = require('../model/GameData');
+const RoomInfo = require('../model/RoomInfo');
+
+//ゲームに必要なデータ
+const gameData = new GameData();
+
 io.on("connection", (socket) => {
   //=============================
   //管理者ログイン
@@ -77,7 +84,17 @@ io.on("connection", (socket) => {
     }
 
   })
-
+  //=============================
+  //管理者がメンバー数を登録した時
+  //=============================
+  socket.on("settingMemberNumber",function(socketData){
+    //新たにroomInfoを作成
+    const roomInfo = new RoomInfo(socketData.memberNum);
+    //作成したroomInfoをgameDataに追加
+    gameData.addRoomInfo(roomInfo);
+    //作成したroomInfoを返却する
+    socket.emit("settingedMemberNumber",roomInfo);
+  });
 });
 
 /**

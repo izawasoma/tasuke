@@ -4,16 +4,18 @@
     <div class="form-group">
         <div class="form-title">ルーム人数</div>
         <div class="form-input-box">
-          <input type="text" id="playerNumber">
+          <input type="text" id="memberNum">
         </div>
     </div>
-    <button type="button" class="button-white">ルームを開設する</button>
+    <button type="button" class="button-white" onclick="settingMemberNumber()">ルームを開設する</button>
   </form>
 </section>
 
-<section class="index-hoped-player-list close" id="admin-menu-player-number">
+<section class="index-hoped-player-list close" id="admin-hoped-player">
     <h2>参加希望プレイヤー一覧</h2>
-    <table class="table table-border-grid">
+    <article id="admin-index-hoped-player-list">
+    </article>
+    <!-- <table class="table table-border-grid">
         <tr>
             <th class="col-4 table-bg-active">プレイヤーコード</th>
             <td class="col-16" colspan="4">123jsu98</td>
@@ -51,7 +53,7 @@
             <th class="col-8 table-bg-active" colspan="2">合言葉</th>
             <th class="col-4 table-bg-active">操作</th>
         </tr>
-    </table>
+    </table> -->
     <dl>
         <div>
             <dt>視聴者数</dt>
